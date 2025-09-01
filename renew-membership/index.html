@@ -24,9 +24,8 @@
 
     /* Type */
     .h1{font-size:30px;line-height:38px;font-weight:800;color:#ffffff;Margin:0;}
-    .h2{font-size:20px;line-height:26px;font-weight:800;color:#ffffff;Margin:0;}
+    .h2{font-size:20px;line-height:26px;font-weight:800;color:#ffffff;Margin:0;word-break:break-word;-ms-word-break:break-word;hyphens:auto;}
     .p{font-size:16px;line-height:26px;color:#e8edf5;Margin:0;word-break:break-word;-ms-word-break:break-word;hyphens:auto;}
-    .small{font-size:12px;line-height:18px;color:#aab4c4;}
 
     /* Layout / spacing */
     .container{width:100%;max-width:640px;Margin:0 auto;}
@@ -52,9 +51,14 @@
     /* Stacking helpers */
     .stack{vertical-align:top;}
 
-    /* NEW: inner limiter for tiles so text never overhangs */
-    .tile-inner{max-width:420px;margin:0 auto;text-align:center;}
-    
+    /* NEW: inner limiter for tiles so text never touches the rounded edge */
+    .tile-inner{
+      max-width:420px;               /* desktop/tablet limit inside tile */
+      margin:0 auto;
+      padding:0 10px;                /* soft gutters even when very narrow */
+      text-align:center;
+    }
+
     /* --- MOBILE --- */
     @media screen and (max-width:639px){
       .container{width:100% !important;}
@@ -73,8 +77,8 @@
         display:block !important;width:100% !important;text-align:center !important;margin:0 auto !important;
       }
 
-      /* slightly narrower limiter on mobile for comfy gutters */
-      .tile-inner{max-width:360px !important;}
+      /* narrower limiter on phone so copy never overflows rounded panel */
+      .tile-inner{max-width:340px !important;}
     }
   </style>
 </head>
@@ -192,7 +196,8 @@
                       <tr>
                         <td align="center" style="padding:12px 14px;">
                           <!--[if mso]><table role="presentation" width="420"><tr><td align="center"><![endif]-->
-                          <div class="tile-inner">
+                          <!-- inline limiter for max compatibility on picky clients -->
+                          <div class="tile-inner" style="max-width:420px;margin:0 auto;padding:0 10px;text-align:center;">
                             <img src="https://creativespark.media/wp-content/uploads/2025/08/TheCEShop.webp" width="120" alt="The CE Shop — Online Courses" style="display:block;margin:0 auto 10px auto;width:120px;height:auto;border-radius:6px;"/>
                             <h3 class="h2" style="font-size:16px;">CE Shop — Learn on your schedule</h3>
                             <div class="pt-8"></div>
