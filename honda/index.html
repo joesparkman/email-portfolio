@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Email Portfolio – Gallery</title>
+<style>
+  :root{
+    --bg:#f8fafc; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --border:#e5e7eb; --shadow:0 1px 4px rgba(0,0,0,.08);
+    --shadow-lg:0 8px 20px rgba(0,0,0,.12); --brand:#111;
+  }
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+  .wrap{max-width:1180px;margin:40px auto;padding:0 20px}
+  h1{font:700 28px/1.2 system-ui;margin:0 0 18px}
+  p.lead{margin:0 0 28px;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;
+        overflow:hidden;box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s;cursor:pointer}
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+
+  /* Fix: preview images always show from the top */
+  .card img{
+    display:block;
+    width:100%;
+    height:160px;           /* fixed teaser height */
+    object-fit:cover;       /* crop if too tall */
+    object-position:top;    /* start from top of screenshot */
+    transition:transform .3s;
+  }
+  .card:hover img{transform:scale(1.05)}
+
+  .body{padding:12px 14px}
+  .card h3{margin:0 0 8px;font:600 16px/1.2 system-ui}
+  .meta{color:var(--muted);font:12px/1.2 system-ui}
+  .btn{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:8px;background:var(--brand);color:#fff;text-decoration:none}
+
+  .modal{position:fixed;inset:0;background:rgba(15,23,42,.75);display:flex;align-items:center;justify-content:center;
+         opacity:0;visibility:hidden;transition:opacity .25s, visibility .25s step-end;z-index:9999}
+  .modal.open{opacity:1;visibility:visible;transition:opacity .25s, visibility 0s}
+  .modal-inner{width:min(96vw,1000px);height:90vh;background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;
+               transform:translateY(8px);transition:transform .25s}
+  .modal.open .modal-inner{transform:translateY(0)}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)}
+  .modal-head h4{margin:0;font:600 14px/1.2 system-ui}
+  .x{background:none;border:0;font:700 18px/1 system-ui;cursor:pointer}
+  .modal-body{position:relative;flex:1}
+  .modal-body iframe{width:100%;height:100%;border:0;display:block;opacity:0;transition:opacity .25s}
+  .modal-body iframe.loaded{opacity:1}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Email Portfolio</h1>
+    <p class="lead">Click any card to preview the full HTML email inside a modal.</p>
+
+    <div class="grid">
+      <!-- 1 -->
+      <article class="card" data-url="https://joesparkman.github.io/email-portfolio/wagwell-pet-co/">
+        <img src="https://joesparkman.github.io/email-portfolio/assets/wagwell%20pet%20co%20preview.png" alt="Wagwell Pet Co preview">
+        <div class="body">
+          <h3>Wagwell Pet Co</h3>
+          <div class="meta">Promo • Outlook-safe buttons</div>
+          <a class="btn" href="#">View</a>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card" data-url="https://joesparkman.github.io/email-portfolio/city-beat-live/">
+        <img src="https://joesparkman.github.io/email-portfolio/assets/city%20beat%20live%20preview.png" alt="City Beat Live preview">
+        <div class="body">
+          <h3>City Beat Live</h3>
+          <div class="meta">Events digest • badges • cards</div>
+          <a class="btn" href="#">View</a>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card" data-url="https://joesparkman.github.io/email-portfolio/peak-brew-lab/">
+        <img src="https://joesparkman.github.io/email-portfolio/assets/peak%20brew%20lab%20preview.png" alt="Peak Brew Lab preview">
+        <div class="body">
+          <h3>Peak Brew Lab</h3>
+          <div class="meta">Newsletter • dark-mode friendly</div>
+          <a class="btn" href="#">View</a>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card" data-url="https://joesparkman.github.io/email-portfolio/pulse-fitness-studios/">
+        <img src="https://joesparkman.github.io/email-portfolio/assets/pulse%20fitness%20studios%20preview.png" alt="Pulse Fitness Studios preview">
+        <div class="body">
+          <h3>Pulse Fitness Studios</h3>
+          <div class="meta">Offer • CTA variants</div>
+          <a class="btn" href="#">View</a>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card" data-url="https://joesparkman.github.io/email-portfolio/aster-aura/">
+        <img src="https://joesparkman.github.io/email-portfolio/assets/aster%20aura%20preview.png" alt="Aster Aura preview">
+        <div class="body">
+          <h3>Aster Aura</h3>
+          <div class="meta">Announcement • hero pattern</div>
+          <a class="btn" href="#">View</a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="emailModal" aria-hidden="true" role="dialog" aria-label="Email preview">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h4>Preview</h4>
+        <button class="x" aria-label="Close" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="emailFrame" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Open modal from any card or its button
+  document.querySelectorAll('.card').forEach(card=>{
+    const open = (e)=>{
+      e.preventDefault();
+      const url = card.dataset.url;
+      const frame = document.getElementById('emailFrame');
+      frame.classList.remove('loaded');
+      frame.src = url;
+      frame.onload = ()=> frame.classList.add('loaded');
+      const modal = document.getElementById('emailModal');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    };
+    card.addEventListener('click', open);
+    card.querySelector('.btn').addEventListener('click', open);
+  });
+
+  // Close helpers
+  function closeModal(){
+    const modal = document.getElementById('emailModal');
+    const frame = document.getElementById('emailFrame');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    frame.src = ''; // stop any playing media
+  }
+  document.getElementById('emailModal').addEventListener('click', (e)=>{
+    if(e.target.id === 'emailModal') closeModal(); // click on backdrop
+  });
+  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
