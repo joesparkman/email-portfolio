@@ -37,17 +37,14 @@
     .pb-8{padding-bottom:8px;}.pb-12{padding-bottom:12px;}.pb-16{padding-bottom:16px;}.pb-24{padding-bottom:24px;}
     .divider{border-top:1px solid #2a2e48;height:1px;font-size:0;line-height:1px;}
 
-    /* Buttons */
+    /* Buttons (bulletproof sizing) */
     .btn{
       display:inline-block;background:#1F5FA3;color:#ffffff !important;
       font-weight:800;font-size:16px;line-height:20px;text-decoration:none;
-      border-radius:28px;padding:14px 24px;border:0;
-      /* fix mobile overflow when width:100% */
-      box-sizing:border-box;
+      border-radius:28px;padding:14px 24px;border:0; box-sizing:border-box;
     }
     .btn--light{
-      background:#ffffff;color:#1F5FA3 !important;border:2px solid #1F5FA3;
-      box-sizing:border-box;
+      background:#ffffff;color:#1F5FA3 !important;border:2px solid #1F5FA3; box-sizing:border-box;
     }
 
     /* Stacking helpers */
@@ -66,6 +63,9 @@
       .sm-pr-0{padding-right:0 !important;}
       .sm-pl-0{padding-left:0 !important;}
       .sm-px-0{padding-left:0 !important;padding-right:0 !important;}
+
+      /* ZERO side padding only for tile content so buttons align perfectly */
+      .tile{padding-left:0 !important;padding-right:0 !important;}
 
       /* Full-width CTAs without overflow */
       .btn{display:block !important;width:100% !important;text-align:center !important;margin:0 auto !important;}
@@ -181,7 +181,7 @@
                   <td class="stack sm-pr-0" width="50%" style="padding-right:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
-                        <td style="padding:12px 14px; text-align:center;">
+                        <td class="tile" style="padding:12px 14px; text-align:center;">
                           <img src="https://creativespark.media/wp-content/uploads/2025/08/denim.jpg" width="120" alt="Top Producer: Denim & Diamonds" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
                           <h3 class="h2" style="font-size:16px;">Top Producer: Denim &amp; Diamonds</h3>
                           <div class="pt-8"></div>
@@ -197,7 +197,7 @@
                   <td class="stack sm-pl-0" width="50%" style="padding-left:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
-                        <td style="padding:12px 14px; text-align:center;">
+                        <td class="tile" style="padding:12px 14px; text-align:center;">
                           <img src="https://creativespark.media/wp-content/uploads/2025/08/TheCEShop.webp" width="120" alt="The CE Shop — Online Courses" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
                           <h3 class="h2" style="font-size:16px;">CE Shop — Learn on your schedule</h3>
                           <div class="pt-8"></div>
