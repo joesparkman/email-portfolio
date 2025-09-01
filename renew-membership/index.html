@@ -25,7 +25,7 @@
     /* Type */
     .h1{font-size:30px;line-height:38px;font-weight:800;color:#ffffff;Margin:0;}
     .h2{font-size:20px;line-height:26px;font-weight:800;color:#ffffff;Margin:0;}
-    .p{font-size:16px;line-height:26px;color:#e8edf5;Margin:0;}
+    .p{font-size:16px;line-height:26px;color:#e8edf5;Margin:0;word-break:break-word;-ms-word-break:break-word;hyphens:auto;}
     .small{font-size:12px;line-height:18px;color:#aab4c4;}
 
     /* Layout / spacing */
@@ -41,19 +41,20 @@
     .btn{
       display:inline-block;background:#1F5FA3;color:#ffffff !important;
       font-weight:800;font-size:16px;line-height:20px;text-decoration:none;
-      border-radius:28px;padding:14px 24px;border:0;
-      box-sizing:border-box;
+      border-radius:28px;padding:14px 24px;border:0;box-sizing:border-box;
     }
     .btn--light{
       background:#ffffff;color:#1F5FA3 !important;border:2px solid #1F5FA3;box-sizing:border-box;
     }
-
     /* Tile buttons (don’t stretch on mobile) */
     .btn--tile{display:inline-block !important;width:auto !important;}
 
     /* Stacking helpers */
     .stack{vertical-align:top;}
 
+    /* NEW: inner limiter for tiles so text never overhangs */
+    .tile-inner{max-width:420px;margin:0 auto;text-align:center;}
+    
     /* --- MOBILE --- */
     @media screen and (max-width:639px){
       .container{width:100% !important;}
@@ -63,7 +64,6 @@
       .pad-32{padding:20px !important;}
       .padx-32{padding-left:20px !important;padding-right:20px !important;}
 
-      /* remove side padding when columns stack to avoid “offset” look */
       .sm-pr-0{padding-right:0 !important;}
       .sm-pl-0{padding-left:0 !important;}
       .sm-px-0{padding-left:0 !important;padding-right:0 !important;}
@@ -72,6 +72,9 @@
       .btn:not(.btn--tile){
         display:block !important;width:100% !important;text-align:center !important;margin:0 auto !important;
       }
+
+      /* slightly narrower limiter on mobile for comfy gutters */
+      .tile-inner{max-width:360px !important;}
     }
   </style>
 </head>
@@ -167,13 +170,17 @@
                   <td class="stack sm-pr-0" width="50%" style="padding-right:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
-                        <td style="padding:12px 14px; text-align:center;">
-                          <img src="https://creativespark.media/wp-content/uploads/2025/08/denim.jpg" width="120" alt="Top Producer: Denim & Diamonds" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
-                          <h3 class="h2" style="font-size:16px;">Top Producer: Denim &amp; Diamonds</h3>
-                          <div class="pt-8"></div>
-                          <p class="p" style="text-align:center;">Registration is open for our elegant evening. Closes <strong>Fri, Feb 21</strong>.</p>
-                          <div class="pt-12"></div>
-                          <a class="btn btn--tile" href="https://www.westmetrorealtors.com/events/all-events/details/wmbor---top-producers-awards-banquet" target="_blank">Register Today</a>
+                        <td align="center" style="padding:12px 14px;">
+                          <!--[if mso]><table role="presentation" width="420"><tr><td align="center"><![endif]-->
+                          <div class="tile-inner">
+                            <img src="https://creativespark.media/wp-content/uploads/2025/08/denim.jpg" width="120" alt="Top Producer: Denim & Diamonds" style="display:block;margin:0 auto 10px auto;width:120px;height:auto;border-radius:6px;"/>
+                            <h3 class="h2" style="font-size:16px;">Top Producer: Denim &amp; Diamonds</h3>
+                            <div class="pt-8"></div>
+                            <p class="p" style="text-align:center;">Registration is open for our elegant evening. Closes <strong>Fri, Feb 21</strong>.</p>
+                            <div class="pt-12"></div>
+                            <a class="btn btn--tile" href="https://www.westmetrorealtors.com/events/all-events/details/wmbor---top-producers-awards-banquet" target="_blank">Register Today</a>
+                          </div>
+                          <!--[if mso]></td></tr></table><![endif]-->
                         </td>
                       </tr>
                     </table>
@@ -183,13 +190,17 @@
                   <td class="stack sm-pl-0" width="50%" style="padding-left:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
-                        <td style="padding:12px 14px; text-align:center;">
-                          <img src="https://creativespark.media/wp-content/uploads/2025/08/TheCEShop.webp" width="120" alt="The CE Shop — Online Courses" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
-                          <h3 class="h2" style="font-size:16px;">CE Shop — Learn on your schedule</h3>
-                          <div class="pt-8"></div>
-                          <p class="p" style="text-align:center;">State-approved online courses with 7-day support. Pre-licensing and CE.</p>
-                          <div class="pt-12"></div>
-                          <a class="btn btn--tile btn--light" href="https://westmetrorealtors.theceshop.com/" target="_blank">Visit the CE Shop</a>
+                        <td align="center" style="padding:12px 14px;">
+                          <!--[if mso]><table role="presentation" width="420"><tr><td align="center"><![endif]-->
+                          <div class="tile-inner">
+                            <img src="https://creativespark.media/wp-content/uploads/2025/08/TheCEShop.webp" width="120" alt="The CE Shop — Online Courses" style="display:block;margin:0 auto 10px auto;width:120px;height:auto;border-radius:6px;"/>
+                            <h3 class="h2" style="font-size:16px;">CE Shop — Learn on your schedule</h3>
+                            <div class="pt-8"></div>
+                            <p class="p" style="text-align:center;">State-approved online courses with 7-day support. Pre-licensing and CE.</p>
+                            <div class="pt-12"></div>
+                            <a class="btn btn--tile btn--light" href="https://westmetrorealtors.theceshop.com/" target="_blank">Visit the CE Shop</a>
+                          </div>
+                          <!--[if mso]></td></tr></table><![endif]-->
                         </td>
                       </tr>
                     </table>
