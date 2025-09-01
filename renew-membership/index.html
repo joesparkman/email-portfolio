@@ -28,7 +28,7 @@
     .p{font-size:16px;line-height:26px;color:#e8edf5;Margin:0;}
     .small{font-size:12px;line-height:18px;color:#aab4c4;}
 
-    /* Spacing */
+    /* Layout / spacing */
     .container{width:100%;max-width:640px;Margin:0 auto;}
     .pad-24{padding:24px;}
     .pad-32{padding:32px;}
@@ -41,8 +41,10 @@
     .btn{display:inline-block;background:#1F5FA3;color:#ffffff !important;font-weight:800;font-size:16px;line-height:20px;text-decoration:none;border-radius:28px;padding:14px 24px;}
     .btn--light{background:#ffffff;color:#1F5FA3 !important;border:2px solid #1F5FA3;}
 
-    /* Stack */
+    /* Stacking helpers */
     .stack{vertical-align:top;}
+
+    /* --- MOBILE --- */
     @media screen and (max-width:639px){
       .container{width:100% !important;}
       .stack, .stack td{display:block !important;width:100% !important;}
@@ -50,6 +52,14 @@
       .pad-24{padding:20px !important;}
       .pad-32{padding:20px !important;}
       .padx-32{padding-left:20px !important;padding-right:20px !important;}
+
+      /* NEW: kill side padding that causes off-center look when stacked */
+      .sm-pr-0{padding-right:0 !important;}
+      .sm-pl-0{padding-left:0 !important;}
+      .sm-px-0{padding-left:0 !important;padding-right:0 !important;}
+
+      /* Make CTAs easy to tap */
+      .btn{display:block !important;width:100% !important;text-align:center !important;}
     }
   </style>
 </head>
@@ -68,13 +78,12 @@
             <td class="pad-24 band" style="padding:16px 24px;">
               <table role="presentation" width="100%">
                 <tr>
-                  <td align="left" class="stack">
-                    <!-- Replace with your header/logo -->
+                  <td align="left" class="stack sm-px-0">
                     <a href="https://westmetrorealtors.com" target="_blank" style="text-decoration:none;">
                       <img src="https://creativespark.media/wp-content/uploads/2025/08/west-metro-logo.png" width="180" alt="West Metro Board of REALTORS® Logo" style="height:auto; display:block;"/>
                     </a>
                   </td>
-                  <td align="right" class="stack" style="color:#aab4c4;font-size:12px;">
+                  <td align="right" class="stack center sm-px-0" style="color:#aab4c4;font-size:12px;">
                     <a href="#" style="color:#aab4c4;">View online</a>
                   </td>
                 </tr>
@@ -85,7 +94,7 @@
           <!-- Hero image -->
           <tr>
             <td>
-              <img src="https://creativespark.media/wp-content/uploads/2025/08/Time-is-running-out-green.png" width="640" alt="Time is Running Out — Renew Today" style="width:100%;height:auto;" style="width:100%;height:auto;"/>
+              <img src="https://creativespark.media/wp-content/uploads/2025/08/Time-is-running-out-green.png" width="640" alt="Time is Running Out — Renew Today" style="width:100%;height:auto;"/>
             </td>
           </tr>
 
@@ -96,7 +105,6 @@
               <div class="pt-12"></div>
               <p class="p muted"></p>
               <div class="pt-16"></div>
-              <!-- CTA button (bulletproof) -->
               <!--[if mso]>
                 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://westmetrorealtors.com/renew" style="height:46px;v-text-anchor:middle;width:200px;" arcsize="50%" stroke="f" fillcolor="#1F5FA3">
                   <w:anchorlock/>
@@ -122,14 +130,14 @@
               <table role="presentation" width="100%">
                 <tr>
                   <!-- Text column -->
-                  <td class="stack" width="56%" style="padding-right:16px;">
+                  <td class="stack sm-pr-0" width="56%" style="padding-right:16px;">
                     <h2 class="h2"><span class="accent">Benefits</span> you’ll keep</h2>
                     <div class="pt-12"></div>
                     <table role="presentation" width="100%">
                       <tr><td class="p">• 24 hours of free CE to stay sharp</td></tr>
                       <tr><td class="p">• Advocacy (RPAC) protecting your business</td></tr>
                       <tr><td class="p">• Member luncheons and networking</td></tr>
-                      <tr><td class="p">• Discounts, RPR tools, GAR Contracts ($349 value) & Legal Helpline</td></tr>
+                      <tr><td class="p">• Discounts, RPR tools, GAR Contracts ($349 value) &amp; Legal Helpline</td></tr>
                       <tr><td class="p">• Scholarship opportunities via GAR</td></tr>
                     </table>
                     <div class="pt-16"></div>
@@ -145,7 +153,7 @@
                     <!--<![endif]-->
                   </td>
                   <!-- Image column -->
-                  <td class="stack" width="44%" style="padding-left:16px;">
+                  <td class="stack sm-pl-0" width="44%" style="padding-left:16px;">
                     <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" width="260" alt="Laptop with resources" style="width:100%;height:auto;border-radius:8px;"/>
                   </td>
                 </tr>
@@ -161,12 +169,12 @@
               <table role="presentation" width="100%">
                 <tr>
                   <!-- Denim & Diamonds column -->
-                  <td class="stack" width="50%" style="padding-right:12px; vertical-align:top;">
+                  <td class="stack sm-pr-0" width="50%" style="padding-right:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
                         <td style="padding:12px 14px; text-align:center;">
                           <img src="https://creativespark.media/wp-content/uploads/2025/08/denim.jpg" width="120" alt="Top Producer: Denim & Diamonds" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
-                          <h3 class="h2" style="font-size:16px;">Top Producer: Denim & Diamonds</h3>
+                          <h3 class="h2" style="font-size:16px;">Top Producer: Denim &amp; Diamonds</h3>
                           <div class="pt-8"></div>
                           <p class="p" style="text-align:center;">Registration is open for our elegant evening. Closes <strong>Fri, Feb 21</strong>.</p>
                           <div class="pt-12"></div>
@@ -177,14 +185,14 @@
                   </td>
 
                   <!-- CE Shop column -->
-                  <td class="stack" width="50%" style="padding-left:12px; vertical-align:top;">
+                  <td class="stack sm-pl-0" width="50%" style="padding-left:12px; vertical-align:top;">
                     <table role="presentation" width="100%" style="background:#0f2a4a; border:1px solid #2a2e48; border-radius:10px;">
                       <tr>
                         <td style="padding:12px 14px; text-align:center;">
                           <img src="https://creativespark.media/wp-content/uploads/2025/08/TheCEShop.webp" width="120" alt="The CE Shop — Online Courses" style="display:block; margin:0 auto 10px auto; width:120px; height:auto; border-radius:6px;"/>
                           <h3 class="h2" style="font-size:16px;">CE Shop — Learn on your schedule</h3>
                           <div class="pt-8"></div>
-                          <p class="p" style="text-align:center;">State‑approved online courses with 7‑day support. Pre‑licensing and CE.</p>
+                          <p class="p" style="text-align:center;">State-approved online courses with 7-day support. Pre-licensing and CE.</p>
                           <div class="pt-12"></div>
                           <a class="btn btn--light" href="https://westmetrorealtors.theceshop.com/" target="_blank">Visit the CE Shop</a>
                         </td>
@@ -229,7 +237,7 @@
           </tr>
         </table>
 
-        <div class="small" style="font-family:Arial, Helvetica, sans-serif;color:#6e7a92;padding-top:10px;">Having trouble with the button? Copy & paste: https://westmetrorealtors.com/renew</div>
+        <div class="small" style="font-family:Arial, Helvetica, sans-serif;color:#6e7a92;padding-top:10px;">Having trouble with the button? Copy &amp; paste: https://westmetrorealtors.com/renew</div>
 
       </td>
     </tr>
