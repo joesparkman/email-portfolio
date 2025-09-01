@@ -155,7 +155,46 @@ display:block !important; width:100% !important;
     padding-right:16px !important;
   }
 }
+/* --- HERO: stop text overflow on mobile --- */
 
+/* allow the hero to grow; keep a reasonable minimum */
+.email-container .hero{
+height:auto !important; /* was 400px */
+min-height:320px !important; /* keeps image presence */
+padding:28px 0 !important; /* gives text breathing room */
+}
+
+/* keep long words from leaking outside */
+.email-container .hero .text,
+.email-container .hero h2,
+.email-container .hero p{
+overflow-wrap:break-word !important;
+word-break:break-word !important; /* Outlook.com/legacy clients */
+-ms-word-break:break-word !important; /* old IE engines (Outlook) */
+hyphens:auto !important;
+}
+
+/* mobile refinements */
+@media screen and (max-width:600px){
+.email-container .hero .text{
+padding:0 18px !important; /* tighten side padding */
+max-width:560px !important; /* keep it inside 600 container */
+}
+.email-container .hero h2{
+font-size:24px !important;
+line-height:30px !important;
+margin:0 0 8px !important;
+}
+.email-container .hero p{
+font-size:14px !important;
+line-height:22px !important;
+margin:0 0 14px !important;
+}
+/* keep the CTA from ever touching the edges */
+.email-container .btn.btn-primary{
+max-width:92% !important;
+}
+}
 </style>
 </head>
 <body style="margin:0; padding:0; background:#f1f1f1;">
