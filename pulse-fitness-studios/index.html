@@ -1,62 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="x-apple-disable-message-reformatting">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse Fitness Studio</title>
+<!--[if mso]>
+<xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+<![endif]-->
+
 <style id="pulse-email-final-fixes">
 /* ===== Containment: neutralize theme styling inside email ===== */
-.email-container, .email-container * {
-  box-shadow: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-}
-.email-container table{border-collapse:collapse !important;border-spacing:0 !important;}
+.email-container, .email-container * { box-shadow:none !important; border:0 !important; outline:0 !important; }
+.email-container table{ border-collapse:collapse !important; border-spacing:0 !important; }
+/* Kill zebra striping and force transparent cells by default */
 .email-container table tbody > tr > td,
 .email-container table tbody > tr > th,
-.email-container tr, 
-.email-container td, 
-.email-container th {background-color:transparent !important;}
-.email-container hr{display:none !important;}
+.email-container tr,
+.email-container td,
+.email-container th { background-color:transparent !important; }
+.email-container hr{ display:none !important; }
 
-/* ===== Fluid base (desktop caps at 600) ===== */
-.email-container{width:100% !important;max-width:600px !important;margin:0 auto !important;}
-.email-container > table,
-.email-container .hero{width:100% !important;max-width:600px !important;margin:0 auto !important;table-layout:auto !important;}
-.email-container img{display:block !important;max-width:100% !important;height:auto !important;-ms-interpolation-mode:bicubic;}
+/* ===== Width lock (classic 600px email) ===== */
+.email-container{ max-width:600px !important; width:100% !important; margin:0 auto !important; }
+.email-container > table{ width:600px !important; margin:0 auto !important; table-layout:fixed !important; }
+.email-container .hero{ width:600px !important; max-width:600px !important; margin:0 auto !important; }
 
-/* Section helpers */
-.email-container .bg_white{background:#fff !important;color:#000 !important;}
-.email-container .bg_light{background:#fafafa !important;color:#000 !important;}
+/* ===== Section helpers ===== */
+.email-container .bg_white{ background:#fff !important; color:#000 !important; }
+.email-container .bg_light{ background:#fafafa !important; color:#000 !important; }
+.email-container .bg_dark{ background:#111 !important; color:#fff !important; }
+.email-container .bg_black{ background:#000 !important; color:#fff !important; }
+.email-container .primary{ background:#f33a3a !important; color:#fff !important; }
 
-/* Optional utility classes you may already use */
-.email-container .stack{vertical-align:top;}           /* will stack on mobile */
-.email-container .pad-24{padding:24px !important;}
-.email-container .px-24{padding-left:24px !important;padding-right:24px !important;}
-.email-container .btn{display:inline-block !important;} /* becomes block on mobile */
-
-/* ===== Desktop enforcement (keep the classic 600px cap) ===== */
-@media only screen and (min-width:601px){
-  .email-container > table{width:600px !important;}
-  .email-container .hero{max-width:600px !important;}
+/* ===== Hero: center overlay text on image ===== */
+.email-container .hero{
+position:relative !important; height:400px !important;
+background-size:cover !important; background-position:center !important; background-repeat:no-repeat !important;
+}
+.email-container .hero .text{
+position:absolute !important; top:50% !important; left:50% !important; transform:translate(-50%,-50%) !important;
+width:100% !important; max-width:600px !important; padding:0 3em !important; text-align:center !important;
+color:rgba(255,255,255,.95) !important;
 }
 
-/* ===== Mobile fixes ===== */
+/* Metrics text readable on dark bg */
+.email-container .counter .counter-text .num,
+.email-container .counter .counter-text .name{ color:#fff !important; }
+
+/* ===== Services icons (remove gray boxes, center like original) ===== */
+.email-container .services-block,
+.email-container .services-block *{ background:transparent !important; }
+.email-container .services-block .icon{ text-align:center !important; padding:0 !important; }
+.email-container .services-block .icon img{
+display:block; width:60px !important; height:auto !important; margin:0 auto 8px !important;
+}
+.email-container .services-block .text-services{ padding:10px 10px 0 !important; text-align:center !important; }
+.email-container .services-block h3{ font-size:20px !important; margin:8px 0 6px !important; color:#000 !important; }
+.email-container .services-block p{ margin:0 !important; color:rgba(0,0,0,.75) !important; }
+
+/* ===== Align CTAs at the bottom in program/blog cards ===== */
+.email-container .text-services,
+.email-container .text-testimony{ display:flex !important; flex-direction:column !important; height:100% !important; }
+.email-container .text-services .btn,
+.email-container .text-services a.btn,
+.email-container .text-testimony p:last-child{ margin-top:auto !important; }
+
+/* Nice min-heights so the two “Member Favorites” cards match */
+.email-container .programs-block .text-services{ min-height:190px !important; }
+.email-container .programs-block h3{ margin-bottom:8px !important; }
+.email-container .programs-block .text-services p:first-of-type{ margin-bottom:12px !important; }
+
+/* Buttons */
+.email-container .btn.btn-primary,
+.email-container a.btn.btn-primary{
+display:inline-block; padding:10px 15px !important; border-radius:30px !important;
+background:#f33a3a !important; color:#fff !important; text-decoration:none !important; line-height:1 !important;
+}
+
+/* Ensure dark image sections don’t get painted white by themes */
+.email-container .hero td, .email-container .hero tr,
+.email-container .counter td, .email-container .counter tr{ background-color:transparent !important; }
+
+/* ====== General image fluidity ====== */
+.email-container img{ max-width:100% !important; height:auto !important; }
+
+/* ====== iOS Mail link style reset ====== */
+a[x-apple-data-detectors]{ color:inherit !important; text-decoration:none !important; }
+
+/* ====== MOBILE ====== */
 @media only screen and (max-width:600px){
-  /* Make every major wrapper fluid */
-  .email-container,
-  .email-container > table,
-  .email-container .hero{width:100% !important;max-width:100% !important;}
+/* Container and global padding */
+.email-container > table{ width:100% !important; }
+.email-container .email-section{ padding:24px 18px !important; }
 
-  /* Stack any columns */
-  .email-container .stack,
-  .email-container .stack td,
-  .email-container [data-stack="true"]{display:block !important;width:100% !important;}
-
-  /* Friendlier side padding on phones */
-  .email-container .pad-24{padding:18px !important;}
-  .email-container .px-24{padding-left:16px !important;padding-right:16px !important;}
-
-  /* Full-width, tappable buttons */
-  .email-container .btn,
-  .email-container a.btn{display:block !important;width:100% !important;box-sizing:border-box !important;text-align:center !important;}
-
-  /* Show/Hide helpers */
-  .email-container .hide-mobile{display:none !important;mso-hide:all !important;}
-  .email-container .show-mobile{display:block !important;max-height:none !important;overflow:visible !important;}
+/* Stack 50/33/25% columns to full width */
+.email-container [width="50%"],
+.email-container [width="33.333%"],
+.email-container [width="25%"]{
+display:block !important; width:100% !important;
 }
+
+/* Remove inner side paddings when stacked (common inline styles) */
+.email-container td[style*="padding-left:10px"]{ padding-left:0 !important; }
+.email-container td[style*="padding-right:10px"]{ padding-right:0 !important; }
+.email-container td[style*="padding:20px 30px"]{ padding:16px 18px !important; }
+
+/* Hero tweaks */
+.email-container .hero{ height:280px !important; }
+.email-container .hero .text{ padding:0 18px !important; }
+.email-container .hero .text h2{ font-size:24px !important; line-height:30px !important; }
+
+/* Headings scale */
+.email-container .heading-section h2{ font-size:24px !important; line-height:30px !important; }
+
+/* Full-width buttons for thumb-tapping */
+.email-container .btn.btn-primary{ display:block !important; width:100% !important; text-align:center !important; }
+
+/* Counter tiles: add spacing */
+.email-container .counter .counter-text{ padding:8px 0 !important; }
+}
+  /* keep images fluid everywhere (safety) */
+.email-container img{max-width:100% !important; height:auto !important;}
+
+/* MOBILE FIXES */
+@media screen and (max-width:600px){
+  /* remove big side padding in the hero overlay that causes overflow */
+  .email-container .hero{height:auto !important;}
+  .email-container .hero .text{
+    position:static !important;           /* no transform shifting on small screens */
+    transform:none !important;
+    padding:16px !important;               /* was 0 3em */
+    max-width:100% !important;
+  }
+
+  /* make buttons fit; no spill */
+  .email-container a.btn,
+  .email-container .btn{
+    display:block !important;
+    width:100% !important;
+    max-width:320px !important;            /* feel free to adjust 280–360 */
+    margin:0 auto !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;         /* allow wrapping if needed */
+  }
+
+  /* narrow the general section padding a bit so pills don’t “kiss” the edges */
+  .email-container .email-section{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+}
+
 </style>
+</head>
+<body style="margin:0; padding:0; background:#f1f1f1;">
+<center style="width:100%; background-color:#f1f1f1;">
+<div class="email-container">
+
+<!-- ===== HEADER / LOGO ===== -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td class="bg_white logo" style="padding:1em 2.5em; text-align:center;">
+<h1 style="margin:0;"><a href="#" style="color:#000; font-size:20px; font-weight:700; text-transform:uppercase; font-family:'Montserrat', Arial, sans-serif; text-decoration:none;">Pulse Fitness Studio</a></h1>
+</td>
+</tr>
+
+<!-- ===== HERO ===== -->
+<tr>
+<td valign="middle" class="hero"
+style="background-image:linear-gradient(to bottom, rgba(0,0,0,.60), rgba(0,0,0,.35)), url('https://creativespark.media/wp-content/uploads/2025/08/main-hero-2.webp');">
+<table role="presentation" width="100%">
+<tr><td>
+<div class="text">
+<h2 style="color:#fff !important; font-size:30px; margin:0 0 8px;">Transform Your Body, Elevate Your Mind</h2>
+<p style="color:#fff !important; opacity:.95; margin:0 0 16px;">Crush your goals with expert coaches, results-driven programs, and an uplifting community.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Start Your Free Trial</a></p>
+</div>
+</td></tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== WELCOME STRIP ===== -->
+<tr>
+<td class="bg_dark email-section" style="text-align:center; padding:2.5em;">
+<div class="heading-section heading-section-white">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,.8); margin-bottom:10px;">Welcome</span>
+<h2 style="font-size:28px; margin:6px 0 8px; color:#fff;">Strong Starts Here</h2>
+<p style="margin:0; color:#fff;">Whether you’re new to fitness or training for a PR, our coaches and classes meet you where you are.</p>
+</div>
+</td>
+</tr>
+
+<!-- ===== SERVICES ===== -->
+<tr>
+<td class="bg_white email-section" style="padding:2.5em;">
+<div class="heading-section" style="text-align:center; padding:0 30px;">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,.5); margin-bottom:10px;">Services</span>
+<h2 style="font-size:28px; margin:6px 0 8px; color:#000;">What We Offer</h2>
+<p style="margin:0;">Personalized coaching, high-energy group training, and recovery support. Everything under one roof.</p>
+</div>
+
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="services-block">
+<tr>
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td class="icon">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/personal-training-icon-1.webp" alt="Personal Training Icon">
+</td></tr>
+<tr><td class="text-services">
+<h3>Personal Training</h3>
+<p>One-on-one coaching, custom plans, progress tracking.</p>
+</td></tr>
+</table>
+</td>
+
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td class="icon">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/group-fitness-icon-1.webp" alt="Group Fitness Icon">
+</td></tr>
+<tr><td class="text-services">
+<h3>Group Fitness</h3>
+<p>HIIT, spin, yoga, strength circuits—and a team to push you.</p>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== VIDEO ===== -->
+<tr>
+<td class="bg_light email-section" style="text-align:center; padding:2.5em;">
+<table role="presentation" width="100%">
+<tr>
+<td class="img" style="position:relative;">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/video-image.webp" width="600" alt="HIIT Class Preview" border="0" style="width:100%; max-width:600px; height:auto; margin:auto; display:block; border-radius:6px;" class="g-img">
+<a href="#" aria-label="Play video" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:inline-block;">
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 100 100" role="img" aria-label="Play">
+<circle cx="50" cy="50" r="48" fill="rgba(0,0,0,0.6)"/>
+<polygon points="40,30 70,50 40,70" fill="#ffffff"/>
+</svg>
+</a>
+</td>
+</tr>
+<tr><td style="padding-top:20px;">
+<h2 style="margin:0 0 8px; color:#000;">Take a Peek Inside a Class</h2>
+<p style="margin:0;">60 seconds of energy: see what a real Pulse Fitness HIIT session feels like.</p>
+</td></tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== PROGRAMS (Member Favorites) ===== -->
+<tr>
+<td class="bg_white email-section programs-block" style="padding:2.5em;">
+<div class="heading-section" style="text-align:center; padding:0 30px;">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,.5); margin-bottom:10px;">Programs</span>
+<h2 style="font-size:28px; margin:6px 0 8px; color:#000;">Member Favorites</h2>
+<p style="margin:0;">Choose a program that fits your goals and schedule.</p>
+</div>
+
+<table role="presentation" width="100%">
+<tr>
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td style="padding-right:10px;">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/weight-lifting.webp" alt="Strength Training" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr>
+<tr><td class="text-services" style="text-align:left;">
+<h3 style="margin:10px 0 6px;">Strength Training</h3>
+<p style="margin:0 0 10px;">Progressive overload plans for visible gains.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">View Schedule</a></p>
+</td></tr>
+</table>
+</td>
+
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td style="padding-left:10px;">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/yoga.webp" alt="Yoga & Mobility" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr>
+<tr><td class="text-services" style="text-align:left;">
+<h3 style="margin:10px 0 6px;">Yoga & Mobility</h3>
+<p style="margin:0 0 10px;">Flexibility, balance, breathwork—feel better every day.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Try a Class</a></p>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== FEATURED PROGRAMS (4 alternating cards) ===== -->
+<!-- Card 1 -->
+<tr>
+<td class="bg_white email-section" style="padding:0;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td class="text-services" style="text-align:left; padding:20px 30px;">
+<div class="heading-section">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0); margin-bottom:8px;">Signature</span>
+<h2 style="font-size:22px; margin:6px 0 8px;">Cardio Bootcamp</h2>
+<p style="margin:0 0 10px;">Fast-paced circuits that torch calories and boost endurance.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Book a Spot</a></p>
+</div>
+</td></tr></table>
+</td>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/bootcamp.webp" alt="Cardio Bootcamp" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- Card 2 -->
+<tr>
+<td class="bg_white email-section" style="padding:0;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/cycling-studio.webp" alt="Spin Studio" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr></table>
+</td>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td class="text-services" style="text-align:left; padding:20px 30px;">
+<div class="heading-section">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0); margin-bottom:8px;">Endurance</span>
+<h2 style="font-size:22px; margin:6px 0 8px;">Rhythm Ride (Spin)</h2>
+<p style="margin:0 0 10px;">Beat-driven cycling sessions with climbs, sprints, and intervals.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Reserve a Bike</a></p>
+</div>
+</td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- Card 3 -->
+<tr>
+<td class="bg_white email-section" style="padding:0;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td class="text-services" style="text-align:left; padding:20px 30px;">
+<div class="heading-section">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0); margin-bottom:8px;">Power</span>
+<h2 style="font-size:22px; margin:6px 0 8px;">Boxing Fundamentals</h2>
+<p style="margin:0 0 10px;">Pad work, footwork, and conditioning—train like an athlete.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Join the Ring</a></p>
+</div>
+</td></tr></table>
+</td>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/boxing-training.webp" alt="Boxing Training" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- Card 4 -->
+<tr>
+<td class="bg_white email-section" style="padding:0;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/pilates.webp" alt="Pilates Reformer" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr></table>
+</td>
+<td valign="middle" width="50%">
+<table role="presentation" width="100%"><tr><td class="text-services" style="text-align:left; padding:20px 30px;">
+<div class="heading-section">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,0); margin-bottom:8px;">Core</span>
+<h2 style="font-size:22px; margin:6px 0 8px;">Pilates Reformer</h2>
+<p style="margin:0 0 10px;">Low-impact strength for alignment, stability, and mobility.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Try a Session</a></p>
+</div>
+</td></tr></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== COUNTERS on image ===== -->
+<tr>
+<td valign="middle" class="counter"
+style="background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('https://creativespark.media/wp-content/uploads/2025/08/main-hero-2.webp'); background-size:cover; background-position:center; padding:4em 0;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="middle" width="25%"><div class="counter-text" style="text-align:center;"><span class="num" style="display:block; font-size:34px; font-weight:700;">2,100+</span><span class="name" style="display:block; font-size:13px;">Active Members</span></div></td>
+<td valign="middle" width="25%"><div class="counter-text" style="text-align:center;"><span class="num" style="display:block; font-size:34px; font-weight:700;">95+</span><span class="name" style="display:block; font-size:13px;">Classes / Week</span></div></td>
+<td valign="middle" width="25%"><div class="counter-text" style="text-align:center;"><span class="num" style="display:block; font-size:34px; font-weight:700;">18</span><span class="name" style="display:block; font-size:13px;">Certified Coaches</span></div></td>
+<td valign="middle" width="25%"><div class="counter-text" style="text-align:center;"><span class="num" style="display:block; font-size:34px; font-weight:700;">4.9</span><span class="name" style="display:block; font-size:13px;">Avg. Member Rating</span></div></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== BLOG / TIPS ===== -->
+<tr>
+<td class="bg_white email-section" style="padding:2.5em;">
+<div class="heading-section" style="text-align:center; padding:0 30px;">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,.5); margin-bottom:10px;">Tips</span>
+<h2 style="font-size:28px; margin:6px 0 8px; color:#000;">From the Pulse Blog</h2>
+<p style="margin:0;">Science-backed advice to get stronger, leaner, and healthier.</p>
+</div>
+
+<table role="presentation" width="100%">
+<tr>
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td style="padding-right:10px;">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/meal-prep.webp" alt="Meal Prep Basics" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr>
+<tr><td class="text-services" style="text-align:left;">
+<p class="meta" style="margin:0 0 6px;"><span>Posted on Aug 13, 2025</span> &nbsp; <span>Nutrition</span></p>
+<h3 style="margin:0 0 6px;">Meal Prep That Actually Sticks</h3>
+<p style="margin:0 0 10px;">Simple, sustainable strategies for busy schedules.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Read more</a></p>
+</td></tr>
+</table>
+</td>
+
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td style="padding-left:10px;">
+<img src="https://creativespark.media/wp-content/uploads/2025/08/post-workout-stretch.webp" alt="Recovery & Mobility" style="width:100%; height:auto; margin:auto; display:block;">
+</td></tr>
+<tr><td class="text-services" style="text-align:left;">
+<p class="meta" style="margin:0 0 6px;"><span>Posted on Aug 07, 2025</span> &nbsp; <span>Recovery</span></p>
+<h3 style="margin:0 0 6px;">Recover Faster With Mobility</h3>
+<p style="margin:0 0 10px;">Daily stretches that improve performance and reduce aches.</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Read more</a></p>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<!-- ===== TESTIMONIALS ===== -->
+<tr>
+<td class="bg_light email-section" style="padding:2.5em;">
+<div class="heading-section" style="text-align:center; padding:0 30px;">
+<span class="subheading" style="display:inline-block; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:rgba(0,0,0,.6); margin-bottom:8px;">Success</span>
+<h2 style="font-size:28px; margin:6px 0 8px; color:#000;">Member Transformations</h2>
+<p style="margin:0;">Real people. Real progress.</p>
+</div>
+
+<table role="presentation" cellpadding="10" cellspacing="0" width="100%">
+<tr>
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/jamaal.webp" alt="Member portrait Jamaal" style="width:100px; height:auto; margin:auto; margin-bottom:20px; display:block; border-radius:50%;">
+</td></tr>
+<tr><td class="text-testimony" style="text-align:center;">
+<h3 class="name" style="margin:0 0 6px;">Jamal R.</h3>
+<span class="position" style="display:block; margin:0 0 8px; color:rgba(0,0,0,.65);">Member, 8 months</span>
+<p style="margin:0 0 10px;">“Dropped 18 lbs and feel stronger. The coaches keep me accountable.”</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Read more</a></p>
+</td></tr>
+</table>
+</td>
+
+<td valign="top" width="50%" style="padding-top:20px;">
+<table role="presentation" width="100%">
+<tr><td>
+<img src="https://creativespark.media/wp-content/uploads/2025/08/sasha.webp" alt="Member portrait Sasha" style="width:100px; height:auto; margin:auto; margin-bottom:20px; display:block; border-radius:50%;">
+</td></tr>
+<tr><td class="text-testimony" style="text-align:center;">
+<h3 class="name" style="margin:0 0 6px;">Sasha M.</h3>
+<span class="position" style="display:block; margin:0 0 8px; color:rgba(0,0,0,.65);">Member, 1 year</span>
+<p style="margin:0 0 10px;">“I finally love working out. Classes are fun and I actually see results.”</p>
+<p style="margin:0;"><a href="#" class="btn btn-primary">Read more</a></p>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+</table>
+
+<!-- ===== FOOTER ===== -->
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:auto;">
+<tr>
+<td valign="middle" class="bg_black footer email-section" style="padding:2.5em;">
+<table role="presentation" width="100%">
+<tr>
+<td valign="top" width="33.333%" style="padding-top:20px;">
+<h3 class="heading" style="color:#fff; font-size:20px; margin:0 0 6px;">Pulse Fitness</h3>
+<p style="margin:0;">Stronger together—Atlanta’s home for results-driven fitness.</p>
+</td>
+<td valign="top" width="33.333%" style="padding-top:20px;">
+<h3 class="heading" style="color:#fff; font-size:20px; margin:0 0 6px;">Contact</h3>
+<ul style="margin:0; padding:0; list-style:none;">
+<li style="margin-bottom:8px;"><span class="text">1234 Energy Ave, Atlanta, GA</span></li>
+<li><span class="text">(404) 555-0123</span></li>
+</ul>
+</td>
+<td valign="top" width="33.333%" style="padding-top:20px;">
+<h3 class="heading" style="color:#fff; font-size:20px; margin:0 0 6px;">Quick Links</h3>
+<ul style="margin:0; padding:0; list-style:none;">
+<li style="margin-bottom:8px;"><a href="#" style="color:#fff; text-decoration:none;">Class Schedule</a></li>
+<li style="margin-bottom:8px;"><a href="#" style="color:#fff; text-decoration:none;">Memberships</a></li>
+<li style="margin-bottom:8px;"><a href="#" style="color:#fff; text-decoration:none;">Coaches</a></li>
+<li><a href="#" style="color:#fff; text-decoration:none;">Free Trial</a></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign="middle" class="bg_black footer email-section" style="padding:1.25em; color:rgba(255,255,255,.7);">
+<table role="presentation" width="100%">
+<tr>
+<td valign="top" width="50%" style="text-align:left;">
+<p style="margin:0;">&copy; 2025 Pulse Fitness Studio. All Rights Reserved.</p>
+</td>
+<td valign="top" width="50%" style="text-align:right;">
+<p style="margin:0;"><a href="#" style="color:rgba(255,255,255,.7); text-decoration:none;">Unsubscribe</a></p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</div>
+</center>
+</body>
+</html>
